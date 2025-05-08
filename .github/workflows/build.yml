@@ -1,13 +1,12 @@
 - name: Configure kernel
   run: |
     cd kernel
-    # Копируем ваш конфиг в системное расположение
+
     cp build.config.nubia.nx679j.txt build.config
     
-    # Применяем конфигурацию
+  
     source build.config
     make nubia_sm8450_defconfig
     
-    # Дополнительные настройки
     echo "CONFIG_HID=y" >> .config
     echo "CONFIG_USB_CONFIGFS_F_HID=y" >> .config
